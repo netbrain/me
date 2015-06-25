@@ -3,6 +3,7 @@ date = "2015-06-09T00:00:00+02:00"
 draft = false
 title = "A simple Todo application, a comparison on Traditional vs CQRS + ES architecture"
 tags = ["golang","cqrs","eventsourcing","crud"]
+image = "/images/post/monolith.jpg"
 +++
 
 For as long as I can remember, the standard approach to web development has been a monolithic one. A database at the bottom, some business logic in the middle and maybe an API interface for communicating against a SPA client.

@@ -2,7 +2,7 @@ BaseUrl= "http://netbrain.github.io/"
 LanguageCode= "en"
 Title= "Kim Eik"
 paginate = 5
-#DisqusShortname = "YOUR_SHORT_NAME_HERE"
+#DisqusShortname = "netbrain"
 Copyright = "All rights reserved - 2015"
 canonifyurls = true
 
