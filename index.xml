@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kim Eik</title>
-    <link>http://netbrain.github.io/me/</link>
+    <link>http://netbrain.github.io/</link>
     <description>Recent content on Kim Eik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>All rights reserved - 2015</copyright>
     <lastBuildDate>Thu, 25 Jun 2015 23:31:03 +0200</lastBuildDate>
-    <atom:link href="http://netbrain.github.io/me/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://netbrain.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>My blog</title>
-      <link>http://netbrain.github.io/me/post/initializing-blog/</link>
+      <link>http://netbrain.github.io/post/initializing-blog/</link>
       <pubDate>Thu, 25 Jun 2015 23:31:03 +0200</pubDate>
       
-      <guid>http://netbrain.github.io/me/post/initializing-blog/</guid>
-      <description>&lt;p&gt;So I came over this static site generator built using go, and i just couldn&amp;rsquo;t resist to try it. And after a couple of hours of tweaking, customising and banging my head on the wall, I had successfully created my a proper blog and even imported a &lt;a href=&#34;http://netbrain.github.io/me/post/a-simple-todo-application-tradition-vs-cqrs+es&#34; title=&#34;a-simple-todo-application-tradition-vs-cqrs+es&#34;&gt;blog entry&lt;/a&gt; I had written for my employer&amp;rsquo;s blog &lt;a href=&#34;http://www.bouvet.no/en/&#34; title=&#34;bouvet&#34;&gt;bouvet&lt;/a&gt; (Which by the way is a great norwegian based IT consultant company!)&lt;/p&gt;
+      <guid>http://netbrain.github.io/post/initializing-blog/</guid>
+      <description>&lt;p&gt;So I came over this static site generator built using go, and i just couldn&amp;rsquo;t resist to try it. And after a couple of hours of tweaking, customising and banging my head on the wall, I had successfully created my a proper blog and even imported a &lt;a href=&#34;http://netbrain.github.io/post/a-simple-todo-application-tradition-vs-cqrs+es&#34; title=&#34;a-simple-todo-application-tradition-vs-cqrs+es&#34;&gt;blog entry&lt;/a&gt; I had written for my employer&amp;rsquo;s blog &lt;a href=&#34;http://www.bouvet.no/en/&#34; title=&#34;bouvet&#34;&gt;bouvet&lt;/a&gt; (Which by the way is a great norwegian based IT consultant company!)&lt;/p&gt;
 
 &lt;p&gt;But anyways, don&amp;rsquo;t expect much from this blog/site. I&amp;rsquo;m not really that active, atleast i don&amp;rsquo;t think I am. But if I happen to be in the mood and feel that i have something substantial to say then maybe ill post a thing or two.&lt;/p&gt;
 
@@ -26,20 +26,20 @@
     
     <item>
       <title>About me</title>
-      <link>http://netbrain.github.io/me/about/</link>
+      <link>http://netbrain.github.io/about/</link>
       <pubDate>Thu, 25 Jun 2015 22:04:40 +0200</pubDate>
       
-      <guid>http://netbrain.github.io/me/about/</guid>
+      <guid>http://netbrain.github.io/about/</guid>
       <description>&lt;p&gt;My name is Kim Eik, I am a husband and father of two and a passionate programmer who loves to experiment with new things. Recently I have been looking at golang and related projects, and this is my personal site created with the help of Hugo, a static site generator written in go.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>A simple Todo application, a comparison on Traditional vs CQRS &#43; ES architecture</title>
-      <link>http://netbrain.github.io/me/post/a-simple-todo-application-tradition-vs-cqrs&#43;es/</link>
+      <link>http://netbrain.github.io/post/a-simple-todo-application-tradition-vs-cqrs&#43;es/</link>
       <pubDate>Tue, 09 Jun 2015 00:00:00 +0200</pubDate>
       
-      <guid>http://netbrain.github.io/me/post/a-simple-todo-application-tradition-vs-cqrs&#43;es/</guid>
+      <guid>http://netbrain.github.io/post/a-simple-todo-application-tradition-vs-cqrs&#43;es/</guid>
       <description>&lt;p&gt;For as long as I can remember, the standard approach to web development has been a monolithic one. A database at the bottom, some business logic in the middle and maybe an API interface for communicating against a SPA client.&lt;/p&gt;
 
 &lt;p&gt;For most applications these object oriented &lt;a href=&#34;http://en.wikipedia.org/wiki/Create,_read,_update_and_delete&#34;&gt;CRUD&lt;/a&gt; solutions work just fine. However there are a couple of shortcomings in this traditional architecture, which I hope to shine some light upon with this post.&lt;/p&gt;
@@ -62,7 +62,7 @@
 
 &lt;p&gt;You decide upon a simple CRUD application that would look something like the following.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/me/images/post/traditional.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/me/images/post/traditional.png&#34; alt=&#34;Traditional architecture&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/images/post/traditional.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/images/post/traditional.png&#34; alt=&#34;Traditional architecture&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;In addition you create a list of the process flow.&lt;/p&gt;
 
@@ -118,7 +118,7 @@
 
 &lt;p&gt;Meanwhile I decided on another approach (you guessed it!) with CQRS and Event Sourcing. The basic structure would look something like the following:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/me/images/post/cqrs+es.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/me/images/post/cqrs+es.png&#34; alt=&#34;CQRS+ES architecture&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/images/post/cqrs+es.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/images/post/cqrs+es.png&#34; alt=&#34;CQRS+ES architecture&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see the structure is quite different from the simple CRUD application, but as are the processes of the application.  As an extra but not required feature for this application I added websockets functionality which basically lets clients subscribe to events so that it’s possible to have realtime data updates in client views.&lt;/p&gt;
 
@@ -193,7 +193,7 @@
 
 &lt;p&gt;In the CRUD application we would typically see a structure like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/me/images/post/scaled-traditional.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/me/images/post/scaled-traditional.png&#34; alt=&#34;Traditional Web Scaling&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/images/post/scaled-traditional.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/images/post/scaled-traditional.png&#34; alt=&#34;Traditional Web Scaling&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A replicated database with a master and slave instance, then two instances of the application and at the DMZ we have a loadbalancer with some kind of caching solution. As a side note, it’s also a good idea to have 2nd level caching between the database and the application, however I haven’t included this in the drawing.&lt;/p&gt;
 
@@ -203,7 +203,7 @@
 
 &lt;p&gt;For the ES application a architecture like the following would probably suffice:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/me/images/post/scaled-cqrs+es.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/me/images/post/scaled-cqrs+es.png&#34; alt=&#34;ES scaling&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/images/post/scaled-cqrs+es.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/images/post/scaled-cqrs+es.png&#34; alt=&#34;ES scaling&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Here we can see we have a replicated event-log as our main storage, we have some way of communication between the application and websocket server through the event bus and we have two instances of the write side of the application and two instances of the read side of the application, both with their own loadbalancer as entry, although strictly speaking we could probably suffice with only one loadbalancer.&lt;/p&gt;
 
