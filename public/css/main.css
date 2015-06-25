@@ -1,0 +1,9 @@
+.blog-avatar{
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.blog-avatar > img {
+	 border-radius: 50%;
+}
