@@ -7,8 +7,141 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>All rights reserved - 2015</copyright>
-    <lastBuildDate>Thu, 25 Jun 2015 23:31:03 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2015 11:28:31 +0200</lastBuildDate>
     <atom:link href="http://netbrain.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DIY Arduino parking sensor</title>
+      <link>http://netbrain.github.io/post/diy-arduino-parking-sensor/</link>
+      <pubDate>Wed, 02 Sep 2015 11:28:31 +0200</pubDate>
+      
+      <guid>http://netbrain.github.io/post/diy-arduino-parking-sensor/</guid>
+      <description>&lt;p&gt;I recently created a workbench in the far end of my garage. This however resulted in about 10 cm of clearance in total in front and behind the car. So needless to say it would be great if I had my own personal parking assistant.&lt;/p&gt;
+
+&lt;p&gt;So I set out with the goal of creating a simple parking assistant, which had to be cheap, small and accurate.I then browsed &lt;a href=&#34;http://www.dx.com&#34;&gt;http://www.dx.com&lt;/a&gt; for the parts i needed and landed on the following pieces:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Arduino nano v3&lt;/li&gt;
+&lt;li&gt;HC-SR04 (Ultrasonic distance sensor)&lt;/li&gt;
+&lt;li&gt;Starter kit (breadbord, resistors, cables, LED&amp;rsquo;s, etc.)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I read a couple of tutorials and started piecing the parts together. It was actually quite simple, and i found the whole experience to be quite enjoyable. The following breadboard describes how I assembled the parts &amp;amp; circuits.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://netbrain.github.io/images/post/psens_bb.png&#34;&gt;&lt;img src=&#34;http://netbrain.github.io/images/post/psens_bb.png&#34; alt=&#34;breadboard&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As for programming the chip I really wanted to use the &lt;a href=&#34;http://www.gobot.io&#34;&gt;gobot&lt;/a&gt; framework. However it turned out that you can&amp;rsquo;t actually flash the arduino with this, instead it works like a remote. Where you run the golang application on a go capable machine, and then this application relays the instructions to the firmata firmware, through some means of communication. So I had to learn a little C/C++ in order to actually program the chip and came up with the following code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;NewPing.h&amp;gt;
+
+#define R_LED 2             // red led pin
+#define Y_LED 3             // yellow led pin
+#define G_LED 4             // green led pin
+#define ECHO_PIN     11     // HC-SR04 echo pin
+#define TRIGGER_PIN  12     // HC-SR04 trigger pin
+#define MAX_DISTANCE 500    // max distance to mesture
+#define DELAY 10            // nanoseconds between distance pings
+
+
+//The history struct keeps track of previous distances measured
+//and calculates the avg distance from the last hsize measures.
+struct history {
+  unsigned int cur;
+  unsigned int hist[100];
+  unsigned int hsize;
+  history(unsigned int hsize = 10) :
+  cur(0), hist({
+    0  }
+  ),hsize(hsize) {
+  }
+  void add(int i){
+    hist[cur] = i;
+    cur = (cur + 1) % hsize;  
+  }
+  int avg(){
+    int sum = 0;
+    int divider = hsize;
+    for (int i = 0; i &amp;lt; hsize; i++) {
+      if (hist[i%hsize] == 0) {
+        divider--;
+      }
+      else{
+        sum = sum + hist[i%hsize];
+      }
+    }
+    return sum / divider;
+  }
+};
+
+//HC-SR04 library
+NewPing sonar(TRIGGER_PIN,ECHO_PIN,MAX_DISTANCE);
+
+history *h = new history(50);
+
+void setup(){
+  pinMode(R_LED, OUTPUT);
+  pinMode(G_LED, OUTPUT);
+  pinMode(Y_LED, OUTPUT);
+}
+
+void loop(){
+  delay(DELAY);
+
+  //Add distance measured to history
+  h-&amp;gt;add(sonar.ping_cm());
+
+  //Get the avg distance
+  int distance = h-&amp;gt;avg();
+
+  //If nothing was returned within MAX_DISTANCE
+  //power all leds
+  if (distance == -1){
+    nothing();
+  }
+  //If distance is greater than 100cm
+  //power green led
+  else if (distance &amp;gt; 100){
+    green();  
+  }
+  //If distance is greater than 5cm
+  //power yellow led
+  else if (distance &amp;gt; 5){
+    yellow();
+  }
+  //distance is 5cm or less, power red led and stop the car!
+  else{
+    red();
+  }
+}
+
+void nothing() {
+  digitalWrite(G_LED, HIGH);
+  digitalWrite(Y_LED, HIGH);  
+  digitalWrite(R_LED, HIGH);
+}
+
+void green(){
+  digitalWrite(G_LED, HIGH);
+  digitalWrite(Y_LED, LOW);  
+  digitalWrite(R_LED, LOW);
+}
+
+void yellow(){
+  digitalWrite(G_LED, LOW);
+  digitalWrite(Y_LED, HIGH);  
+  digitalWrite(R_LED, LOW);
+}
+
+void red(){
+  digitalWrite(G_LED, LOW);
+  digitalWrite(Y_LED, LOW);  
+  digitalWrite(R_LED, HIGH);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The next step is to create some sort of casing and mounting for it and then mount it somewhere in my garage. But that will have to wait until my next dx.com shipment. :)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My blog</title>
